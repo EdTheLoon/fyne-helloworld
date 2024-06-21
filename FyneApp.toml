@@ -1,0 +1,8 @@
+Website = "https://www.example.com"
+
+[Details]
+Icon "Icon.png"
+Name = "Hello, Fyne"
+ID = "scot.reids.hellofyne"
+Version = "1.0.0"
+Build = 1
