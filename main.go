@@ -27,9 +27,10 @@ func main() {
 
 	// Create a button with text "Hi!" and a ConfirmIcon then define a function
 	// that runs when the button is clicked!
+	// We declare a variable which is a pointer so that we can self reference later.
+	// This is unnecessary if we do not need the button's text to change when clicked.
+	// See below commented code for the previous example without self referencing.
 	count := 0
-	// Create a pointer so that we can self reference later. This is unnecessary if
-	// we do not need the button's text to change when clicked.
 	var button *widget.Button
 	button = widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
 		count++
@@ -45,6 +46,21 @@ func main() {
 		button.SetText(buttonTxt)
 	})
 	button.IconPlacement = widget.ButtonIconTrailingText
+
+	/* Old button code without self referencing
+	button := widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
+		count++
+		fmt.Printf("Button clicked %v time(s)!\n", count)
+		var helloTxt string
+		if count == 1 {
+			helloTxt = "Hello :) (clicked once)"
+		} else {
+			helloTxt = fmt.Sprintf("Hello :) (clicked %v times)", count)
+		}
+		hello.SetText(helloTxt)
+	})
+	button.IconPlacement = widget.ButtonIconTrailingText
+	*/
 
 	// Use a VBox to lay out the elements
 	vbox := container.NewVBox(header, sep, hello, button)
