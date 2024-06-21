@@ -28,7 +28,10 @@ func main() {
 	// Create a button with text "Hi!" and a ConfirmIcon then define a function
 	// that runs when the button is clicked!
 	count := 0
-	button := widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
+	// Create a pointer so that we can self reference later. This is unnecessary if
+	// we do not need the button's text to change when clicked.
+	var button *widget.Button
+	button = widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
 		count++
 		fmt.Printf("Button clicked %v time(s)!\n", count)
 		var helloTxt string
@@ -38,6 +41,8 @@ func main() {
 			helloTxt = fmt.Sprintf("Hello :) (clicked %v times)", count)
 		}
 		hello.SetText(helloTxt)
+		buttonTxt := fmt.Sprintf("Hi! (%v)", count)
+		button.SetText(buttonTxt)
 	})
 	button.IconPlacement = widget.ButtonIconTrailingText
 
