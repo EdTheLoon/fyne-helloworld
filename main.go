@@ -47,19 +47,20 @@ func main() {
 	})
 	button.IconPlacement = widget.ButtonIconTrailingText
 
-	/* Old button code without self referencing
-	button := widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
-		count++
-		fmt.Printf("Button clicked %v time(s)!\n", count)
-		var helloTxt string
-		if count == 1 {
-			helloTxt = "Hello :) (clicked once)"
-		} else {
-			helloTxt = fmt.Sprintf("Hello :) (clicked %v times)", count)
-		}
-		hello.SetText(helloTxt)
-	})
-	button.IconPlacement = widget.ButtonIconTrailingText
+	// Old button code without self referencing
+	/*
+		button := widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
+			count++
+			fmt.Printf("Button clicked %v time(s)!\n", count)
+			var helloTxt string
+			if count == 1 {
+				helloTxt = "Hello :) (clicked once)"
+			} else {
+				helloTxt = fmt.Sprintf("Hello :) (clicked %v times)", count)
+			}
+			hello.SetText(helloTxt)
+		})
+		button.IconPlacement = widget.ButtonIconTrailingText
 	*/
 
 	// Use a VBox to lay out the elements
