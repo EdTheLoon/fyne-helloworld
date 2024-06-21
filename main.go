@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
@@ -25,8 +27,17 @@ func main() {
 
 	// Create a button with text "Hi!" and a ConfirmIcon then define a function
 	// that runs when the button is clicked!
+	count := 0
 	button := widget.NewButtonWithIcon("Hi!", theme.ConfirmIcon(), func() {
-		hello.SetText("Hello :)")
+		count++
+		fmt.Printf("Button clicked %v time(s)!\n", count)
+		var helloTxt string
+		if count == 1 {
+			helloTxt = "Hello :) (clicked once)"
+		} else {
+			helloTxt = fmt.Sprintf("Hello :) (clicked %v times)", count)
+		}
+		hello.SetText(helloTxt)
 	})
 	button.IconPlacement = widget.ButtonIconTrailingText
 
